@@ -19,6 +19,12 @@ export class Personas extends Entity {
     type: 'string',
     required: true,
   })
+  correo: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
   apellidos: string;
 
   @property({
@@ -32,6 +38,12 @@ export class Personas extends Entity {
     required: true,
   })
   telefono: string;
+
+  @property({
+    type: 'string',
+    required: false,
+  })
+  clave: string;
 
 
   constructor(data?: Partial<Personas>) {
