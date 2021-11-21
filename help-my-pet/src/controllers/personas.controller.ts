@@ -1,3 +1,4 @@
+
 import { service } from '@loopback/core';
 import {
   Count,
@@ -28,7 +29,7 @@ export class PersonasController {
     @repository(PersonasRepository)
     public personasRepository : PersonasRepository,
     @service(AutenticacionService)
-    public servicioAutenticacion : AutenticacionService
+    public servicioAutenticacion : AutenticacionService 
   ) {}
 
   @post('/personas')
