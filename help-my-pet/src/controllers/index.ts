@@ -12,3 +12,5 @@ export * from './mascotas.controller';
 export * from './solicitud-visitas.controller';
 export * from './empresa-veterinaria.controller';
 export * from './registro-visitas.controller';
+export * from './duenos-personas.controller';
+export * from './veterinarios-personas.controller';
