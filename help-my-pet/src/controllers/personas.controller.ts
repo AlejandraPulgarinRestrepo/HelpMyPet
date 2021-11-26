@@ -1,3 +1,4 @@
+import { service } from '@loopback/core';
 import {
   Count,
   CountSchema,
@@ -19,11 +20,15 @@ import {
 } from '@loopback/rest';
 import {Personas} from '../models';
 import {PersonasRepository} from '../repositories';
+import { AutenticacionService } from '../services';
+const fetch = require("node-fetch-h2");
 
 export class PersonasController {
   constructor(
     @repository(PersonasRepository)
     public personasRepository : PersonasRepository,
+    @service(AutenticacionService)
+    public servicioAutenticacion : AutenticacionService
   ) {}
 
   @post('/personas')
@@ -44,7 +49,19 @@ export class PersonasController {
     })
     personas: Omit<Personas, 'id'>,
   ): Promise<Personas> {
-    return this.personasRepository.create(personas);
+    let clave = this.servicioAutenticacion.GenerarClave();
+    let claveCifrada = this.servicioAutenticacion.CifrarClave(clave);
+    personas.clave = claveCifrada;
+    let p = await this.personasRepository.create(personas);
+
+    // Notificar al usuario
+    let telefono = personas.telefono;
+    let mensaje = `Hola ${personas.nombres} su usuario es: ${personas.correo} y su contraseña es: ${personas.clave}` 
+    fetch(`http://127.0.0.1:5000/sms?telefono=${telefono}&mensaje=${mensaje}`)
+    .then((data:any)=>{
+      console.log(data);
+    })
+    return p;
   }
 
   @get('/personas/count')

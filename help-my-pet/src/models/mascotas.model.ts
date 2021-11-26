@@ -54,6 +54,7 @@ export class Mascotas extends Entity {
   @hasMany(() => SolicitudVisitas)
   solicitudVisitas: SolicitudVisitas[];
 
+
   constructor(data?: Partial<Mascotas>) {
     super(data);
   }
