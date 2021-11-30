@@ -1,0 +1,131 @@
+public int Id {get; set;}
+
+        [Required(ErrorMessage = "El campo {0} es requerido")]
+        public string Name {get; set;}
+
+        [Required(ErrorMessage = "El campo {0} es requerido")]
+        public string LastName {get; set;}
+
+        [Required(ErrorMessage = "El campo {0} es requerido")]
+        public string DocumentType {get; set;}
+
+        [Required(ErrorMessage = "El campo {0} es requerido")]
+        public int Document {get; set;}
+
+        [Required(ErrorMessage = "El campo {0} es requerido")]        
+        public string CountryOrigin {get; set;}
+
+        [Required(ErrorMessage = "El campo {0} es requerido")]
+        public DateTime BornDate {get; set;}
+
+        public string Email {get; set;}
+        public string Phone {get; set;}
+        public string Address {get; set;}
+        public string City {get; set;}
+        public string EmploymentSituation {get; set;}
+
+
+
+
+@using EMigrant.Shared.Models
+@using System.ComponentModel.DataAnnotations;
+
+<EditForm Model="Emigrant" OnValidSubmit="OnDataAnnotationsValidated">
+    <DataAnnotationsValidator></DataAnnotationsValidator>
+
+    <div class="container">
+        <div class="jumbotron">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col col-sm-9">
+                        @* Input para ingresar el nombre *@
+                        <InputText class="form-control" @bind-Value="@Emigrant.Name" placeholder="Nombres"></InputText>
+                        <ValidationMessage For="@(()=>Emigrant.Name)"></ValidationMessage>
+                    </div>
+                    <div class="col col-sm-3">
+                        @* Input de apellidos*@
+                        <InputText class="form-control" @bind-Value="@Emigrant.LastName" placeholder="Apellidos"></InputText>
+                        <ValidationMessage For="@(()=>Emigrant.LastName)"></ValidationMessage>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col col-sm-3">
+                        @* Input para ingresar el tipo de documento *@
+                        <InputText class="form-control" @bind-Value="@Emigrant.DocumentType" placeholder="Tipo documento"></InputText>
+                        <ValidationMessage For="@(()=>@Emigrant.DocumentType)"></ValidationMessage>
+                    </div>
+                    <div class="col col-sm-5">
+                        @* Input para ingresar el nro de documento *@
+                        <InputText class="form-control" @bind-Value="@Emigrant.Document" placeholder="Nro documento"></InputText>
+                        <ValidationMessage For="@(()=>@Emigrant.Document)"></ValidationMessage>
+                    </div>
+                    <div class="col col-sm-4">
+                        <div class="form-group">
+                            @* Número de fecha de nacimiento*@
+                            <InputDate class="form-control" @bind-Value="@Emigrant.BornDate"></InputDate>
+                            <ValidationMessage For="@(()=>Emigrant.BornDate)"></ValidationMessage>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @* Input de País origen *@
+            <div class="form-group">
+                <InputText class="form-control" @bind-Value="@Emigrant.CountryOrigin" placeholder="País origen"></InputText>
+                <ValidationMessage For="@(()=>Emigrant.CountryOrigin)"></ValidationMessage>
+            </div>            
+            <div class="form-group">
+                <div class="row">
+                    <div class="col col-sm-9">
+                        @* Input para ingresar el Email *@
+                        <InputText class="form-control" @bind-Value="@Emigrant.Email" placeholder="Correo electrónico"></InputText>
+                        <ValidationMessage For="@(()=>Emigrant.Email)"></ValidationMessage>
+                    </div>
+                    <div class="col col-sm-3">
+                        @* Input para ingresar el Teléfono *@
+                        <InputText class="form-control" @bind-Value="@Emigrant.Phone" placeholder="Teléfono"></InputText>
+                        <ValidationMessage For="@(()=>Emigrant.Phone)"></ValidationMessage>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col col-sm-9">
+                        @* Input para ingresar la dirección *@
+                        <InputText class="form-control" @bind-Value="@Emigrant.Address" placeholder="Dirección actual"></InputText>
+                        <ValidationMessage For="@(()=>Emigrant.Address)"></ValidationMessage>
+                    </div>
+                    <div class="col col-sm-3">
+                        @* Input para ingresar la ciudad *@
+                        <InputText class="form-control" @bind-Value="@Emigrant.City" placeholder="Ciudad"></InputText>
+                        <ValidationMessage For="@(()=>Emigrant.City)"></ValidationMessage>
+                    </div>
+                </div>
+            </div>            
+            <button type="submit" class="btn btn-success">Aceptar</button>
+            <button type="submit" class="btn btn-danger">Cancelar</button>
+        </div>
+    </div>
+</EditForm>
+@code
+{
+    [Parameter] public Emigrant Emigrant { get; set; }
+    [Parameter] public EventCallback OnValidSubmit { get; set; }
+
+    public List<Emigrant> Emigrants;
+
+    public List<Emigrant>GetEmigrants()
+        {
+            return new List<Emigrant>()
+            {
+                new Emigrant(){Id=1, Name="Elimar", LastName="Rojas", DocumentType="C.C", Document="12345", CountryOrigin="Chile", BornDate= new DateTime(1984,12,14), Email="ej.rojasordaz@gmail.com", Phone="3209879261", Address="Calle", City="Bogotá", EmploymentSituation="Desempleada"}
+                
+            };
+        }
+
+    @* private void Create()
+    {
+        Console.WriteLine($"Creando la categoría {Emigrant.Name}");
+    } *@
+}

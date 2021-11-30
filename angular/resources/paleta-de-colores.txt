@@ -1,4 +1,0 @@
-Azul oscuro = RGB: 0, 113, 188 | HEX: #0071BC
-Azul claro = RGB: 0, 186, 186 | HEX: #00BABA
-Naranja = RGB: 244, 185, 36 | HEX: #F4B924
-
