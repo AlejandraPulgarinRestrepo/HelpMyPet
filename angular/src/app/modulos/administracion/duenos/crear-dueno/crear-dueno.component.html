@@ -1,0 +1,71 @@
+<nav>
+    <div class="nav-wrapper">
+    <div class="row">
+        <div class="col s2">
+            <a href="#!" class="brand-logo"><img src="/frontMascotas/src/app/images/ambulancia.svg"></a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        </div>
+        <div class="col s8 center-align"> 
+            <h4 id="titulo">Registro cliente</h4>
+        </div>
+        <div class="col s2 right-align">
+            <a href="collapsible.html">Salir</a>
+        </div>
+    </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col s12 center-align">
+            <section class="container">
+                <div class="row">
+                <p class="center-align">Por favor llena todos los campos con datos verídicos. <br> Tu información esta segura con nosotros</p>
+                    <article class="col s6 offset-s3">
+                        <form method="POST" action="formulario-contacto">
+                            <div class="input-field">
+                                <i class="material-icons prefix">perm_identity</i>
+
+                                <input type="text" name="nombre" required placeholder="Nombre">
+                            </div>
+        
+                            <div class="input-field">
+                                <i class="material-icons prefix">person_pin</i>
+                            
+                                <input type="text" name="apellido" required placeholder="Apellido">
+                            </div>
+                            
+                            <div class="input-field">
+                                <i class="material-icons prefix">email</i>
+                                
+                                <input type="email" name="email" required placeholder="Correo">
+                            </div>
+        
+                            <div class="input-field">
+                                <i class="material-icons prefix">phone</i>
+                                
+                                <input type="number" name="telefono" required placeholder="Teléfono">
+                            </div>
+
+                            <div class="input-field">
+                                <i class="material-icons prefix">book</i>
+                                
+                                <input type="text" name="direccion" required placeholder="Dirección">
+                            </div>
+                            
+                            <p class="center-align">
+                                <button class="waves-effect waves-light btn" type="submit">Aceptar</button>
+                            </p>
+        
+                        </form>
+        
+                    </article>
+                </div>
+            </section>
+        
+        
+            <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+        </div>
+    </div>
+</div>

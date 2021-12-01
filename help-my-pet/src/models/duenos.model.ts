@@ -4,7 +4,7 @@ import {SolicitudVisitas} from './solicitud-visitas.model';
 import {Personas} from './personas.model';
 
 @model()
-export class Duenos extends Entity {
+export class Duenos extends Personas {
   @property({
     type: 'string',
     id: true,

@@ -3,7 +3,7 @@ import {SolicitudVisitas} from './solicitud-visitas.model';
 import {Personas} from './personas.model';
 
 @model()
-export class Veterinarios extends Entity {
+export class Veterinarios extends Personas {
   @property({
     type: 'string',
     id: true,
