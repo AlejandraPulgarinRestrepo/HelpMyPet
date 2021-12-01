@@ -5,3 +5,8 @@ section{
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: #0071BC;
 }
+button{
+    background-color: #F4B924;
+    border-radius: 8px;
+    
+}
