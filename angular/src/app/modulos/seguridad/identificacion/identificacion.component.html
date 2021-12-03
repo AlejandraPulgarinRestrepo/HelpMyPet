@@ -1,0 +1,20 @@
+<div class="title">
+    <h3>Ingreso dueño</h3>
+</div>
+
+<div class="wrapper">
+    <form class="login" [formGroup]="fgValidador" (ngSubmit)="IdentificarUsuario()">
+        <div class="input-field">
+            <i class="material-icons prefix">person_pin</i>
+            <input formControlName="usuario" type="email" name="usuario" required placeholder="Usuario">
+        </div>
+        <div class="input-field">
+            <i class="material-icons prefix">vpn_key</i>
+            <input formControlName="clave" type="password" name="contrasena" required placeholder="Contraseña">
+        </div>
+        <p class="center-align">
+            <button [disabled]="!fgValidador.valid" class="waves-effect waves-light btn" type="submit">Aceptar</button>
+        </p>
+        <p>Si aún no tienes una cuenta: <a routerLink="#">Registrate aqui</a></p>
+    </form>
+  </div>
