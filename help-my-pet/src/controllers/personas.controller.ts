@@ -17,8 +17,9 @@ import {
   del,
   requestBody,
   response,
+  HttpErrors,
 } from '@loopback/rest';
-import {Personas} from '../models';
+import {Credenciales, Personas} from '../models';
 import {PersonasRepository} from '../repositories';
 import { AutenticacionService } from '../services';
 const fetch = require("node-fetch-h2");
@@ -30,6 +31,36 @@ export class PersonasController {
     @service(AutenticacionService)
     public servicioAutenticacion : AutenticacionService
   ) {}
+
+  @post("/identificarPersona",{
+    responses:{
+      '200':{
+        description: "identificacion de usuarios"
+      }
+    }
+  })
+  async identificar(
+    @requestBody() credenciales : Credenciales
+  ){
+    let p = await this.servicioAutenticacion.IdentificarPersona(credenciales.usuario, credenciales.clave)
+    
+    console.log("persona nestor:",p)
+    if (p) {
+      let token = this.servicioAutenticacion.GenerarTokenJWT(p);
+      return{
+        datos:{
+          nombre : p.nombres,
+          apellido : p.apellidos,
+          correo : p.correo,
+          id : p.id
+        },
+        tk: token
+      }
+    } else {
+      throw new HttpErrors[401]("datos invalidos");
+    }
+
+  }
 
   @post('/personas')
   @response(200, {
@@ -51,6 +82,7 @@ export class PersonasController {
   ): Promise<Personas> {
     let clave = this.servicioAutenticacion.GenerarClave();
     let claveCifrada = this.servicioAutenticacion.CifrarClave(clave);
+    console.log("clave cifrada controller:",claveCifrada);
     personas.clave = claveCifrada;
     let p = await this.personasRepository.create(personas);
 
