@@ -43,7 +43,7 @@ export class Personas extends Entity {
     type: 'number',
     required: false,
   })
-  clave: number;
+  clave: string;
 
 
   constructor(data?: Partial<Personas>) {
