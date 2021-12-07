@@ -7,6 +7,7 @@ import { RegistrarCitaComponent } from './registro-citas/registrar-cita/registra
 import { BuscarCitaComponent } from './registro-citas/buscar-cita/buscar-cita.component';
 import { ActualizarCitaComponent } from './registro-citas/actualizar-cita/actualizar-cita.component';
 import { EliminarCitaComponent } from './registro-citas/eliminar-cita/eliminar-cita.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,7 +20,9 @@ import { EliminarCitaComponent } from './registro-citas/eliminar-cita/eliminar-c
   ],
   imports: [
     CommonModule,
-    CitasRoutingModule
+    CitasRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class CitasModule { }

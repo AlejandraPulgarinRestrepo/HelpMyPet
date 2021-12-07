@@ -3,51 +3,45 @@
     <div class="row">
         <div class="col s12 center-align">
             <section class="container">
-                <form method="POST" action="#">
+                <form [formGroup]= "fgValidador"method="POST" (ngSubmit)="GuardarCita()">
                 <div class="row">
                     <div class="row">
                         <div class="col s4">
-                            <input type="date" name="fecha" required placeholder="fecha">
+                            <input formControlName="fecha" type="date" name="fecha" required placeholder="fecha">
                         </div>
-                    </div>
+                    </div> 
                     <div class="row">
                         <div class="input-field col s4 ">
-                            <select>
-                                <option value="" disabled selected>Choose your option</option>
-                                <option value="1">Perro</option>
-                                <option value="2">Gato</option>
-                                <option value="3">Ave</option>
-                            </select>
-                              <label>Mascota:</label>
                         </div>
                         <div class="col s4">
-                            <input type="number" name="temperatura" required placeholder="Temperatura:">
+                            <input formControlName="temperatura" type="number" name="temperatura" required placeholder="Temperatura:">
                         </div>
                         <div class="col s4">
-                            <input type="number" name="peso" required placeholder="Peso:">
+                            <input formControlName="peso" type="number" name="peso" required placeholder="Peso:">
                         </div>
                     </div>
                     <div class="row">
                                 <div class="col s4">
-                                    <input type="number" name="cardiaca" required placeholder="Frecuencia Cardiaca:">
+                                    <input formControlName="frecuencia_cardiaca" type="number" name="cardiaca" required placeholder="Frecuencia Cardiaca:">
                                 </div>
                                   
                             <div class="col s4">
-                                <input type="number" name="respiratoria" required placeholder="Frecuencia Respiratoria:">
+                                <input formControlName="frecuencia_respiratoria" type="number" name="respiratoria" required placeholder="Frecuencia Respiratoria:">
                             </div>
                             <div class="col s4">
-                                <input type="text" name="animo" required placeholder="Estado animo:">
+                                <input formControlName="estado_animo" type="text" name="animo" required placeholder="Estado animo:">
                             </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                          <textarea id="textarea1" class="materialize-textarea"></textarea>
+                          <textarea formControlName="recomendaciones" id="textarea1" class="materialize-textarea"></textarea>
                           <label for="textarea1">Recomendaciones</label>
                         </div>
                       </div>
                 </div>
                 <p class="left-align">
-                    <button class="waves-effect waves-light btn" type="submit">Guardar</button>
+                    <button [disabled]="!fgValidador.valid" class="waves-effect waves-light btn" type="submit">Guardar</button>
+                    <a class="waves-effect waves-light btn" routerLink="/citas/buscar-cita">Consultar</a>
                 </p>
                 </form>
             </section>
