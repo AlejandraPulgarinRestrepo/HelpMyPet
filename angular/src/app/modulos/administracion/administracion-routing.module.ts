@@ -55,11 +55,11 @@ const routes: Routes = [
     component: BuscarMascotaComponent
   },
   {
-    path:"actualizar-mascota",
+    path:"actualizar-mascota/:id",
     component: ActualizarMascotaComponent
   },
   {
-    path:"eliminar-mascota",
+    path:"eliminar-mascota/:id",
     component: EliminarMascotaComponent
   },
 ];

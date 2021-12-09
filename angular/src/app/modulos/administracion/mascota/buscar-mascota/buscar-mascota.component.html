@@ -1,94 +1,35 @@
-<nav>
-    <div class="nav-wrapper">
-    <div class="row">
-        <div class="col s2">
-            <a href="#!" class="brand-logo"><img src="/frontMascotas/src/app/images/ambulancia.svg"></a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        </div>
-        <div class="col s8 center-align"> 
-            <h4 id="titulo">Petnóstico</h4>
-        </div>
-        <div class="col s2 right-align">
-            <a href="collapsible.html">| Registros | </a>
-            <a href="collapsible.html">Salir</a>
-        </div>
-    </div>
-    </div>
-</nav>
-
 <div class="container">
+    <h3>PETNOSTICO</h3>
     <div class="row">
         <div class="col s12 center-align">
             <section class="container">
                 <form>
                 <div class="row">
-                    <div class="input-field ">
-                        <select>
-                            <option value="" disabled selected>Choose your option</option>
-                            <option value="1">opcion 1</option>
-                            <option value="2">opcion 2</option>
-                            <option value="3">opcion 3</option>
-                        </select>
-                        <label>Veterinario:</label>
-                    </div><br>
-                    <div class="row">
-                    <table>
-                        <thead>
-                          <tr>
-                              <th>Dueño</th>
-                              <th>Mascota</th>
-                              <th>Fecha</th>
-                          </tr>
-                        </thead>
-                
-                        <tbody>
-                          <tr>
-                            <td>Néstor</td>
-                            <td>Max</td>
-                            <td>30 nov 2021</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
                 </div>
                 <div class="row">
                     <div class="row">
-                        <div class="input-field col s6 ">
-                            <select>
-                                <option value="" disabled selected>Choose your option</option>
-                                <option value="1">opcion 1</option>
-                                <option value="2">opcion 2</option>
-                                <option value="3">opcion 3</option>
-                            </select>
-                            <label>Dueño:</label>
-                        </div>
-                        <div class="input-field col s6 ">
-                            <select>
-                                <option value="" disabled selected>Choose your option</option>
-                                <option value="1">opcion 1</option>
-                                <option value="2">opcion 2</option>
-                                <option value="3">opcion 3</option>
-                            </select>
-                            <label>Mascota:</label>
-                        </div>
-                    </div>
-                    <div class="row">
                     <table>
                         <thead>
                           <tr>
+                              <th>Nombre</th>
                               <th>Color ojos</th>
                               <th>Color piel</th>
                               <th>Altura</th>
                               <th>Raza</th>
+                              <th>Tipo Animal</th>
                           </tr>
                         </thead>
                 
                         <tbody>
-                          <tr>
-                            <td>Marron</td>
-                            <td>Dorado</td>
-                            <td>30 cm</td>
-                            <td>Pastor collie</td>
+                          <tr *ngFor = "let m of listadoMascotas">
+                            <td>{{m.nombre}}</td>
+                            <td>{{m.color_ojos}}</td>
+                            <td>{{m.color_piel_pelaje}}</td>
+                            <td>{{m.altura}}</td>
+                            <td>{{m.raza}}</td>
+                            <td>{{m.tipo_animal}}</td>
+                            <td><a class="waves-effect waves-light btn" routerLink="/administracion/actualizar-mascota/{{m.id}}">Editar</a></td>
+                            <td><a class="waves-effect waves-light btn" type="submit" routerLink="/administracion/eliminar-mascota/{{m.id}}">Eliminar</a></td>
                           </tr>
                         </tbody>
                       </table>

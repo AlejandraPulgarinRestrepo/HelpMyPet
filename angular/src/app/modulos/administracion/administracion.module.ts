@@ -14,6 +14,7 @@ import { ActualizarMascotaComponent } from './mascota/actualizar-mascota/actuali
 import { CrearMascotaComponent } from './mascota/crear-mascota/crear-mascota.component';
 import { BuscarMascotaComponent } from './mascota/buscar-mascota/buscar-mascota.component';
 import { EliminarMascotaComponent } from './mascota/eliminar-mascota/eliminar-mascota.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -33,7 +34,9 @@ import { EliminarMascotaComponent } from './mascota/eliminar-mascota/eliminar-ma
   ],
   imports: [
     CommonModule,
-    AdministracionRoutingModule
+    AdministracionRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class AdministracionModule { }

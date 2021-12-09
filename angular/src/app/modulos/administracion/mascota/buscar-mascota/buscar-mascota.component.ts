@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModeloMascotas } from 'src/app/modelos/mascotas.model';
+import { AdministracionService } from 'src/app/servicios/administracion.service';
 
 @Component({
   selector: 'app-buscar-mascota',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuscarMascotaComponent implements OnInit {
 
-  constructor() { }
+  listadoMascotas: ModeloMascotas[]=[];
+  constructor(private servicioMascotas: AdministracionService) { 
+    
+  }
 
   ngOnInit(): void {
+    this.ObtenerListadoMascotas()
+  }
+
+  ObtenerListadoMascotas(){
+    this.servicioMascotas.buscarMascota().subscribe((datos:ModeloMascotas[])=>{
+      this.listadoMascotas=datos;
+    });
   }
 
 }

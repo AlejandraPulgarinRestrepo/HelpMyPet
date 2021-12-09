@@ -1,1 +1,42 @@
-<p>actualizar-mascota works!</p>
+<p></p>
+<div class="container">
+    <div class="row">
+        <div class="col s12 center-align">
+            <section class="container">
+                <form [formGroup]= "fgValidador"  (ngSubmit)="EditarMascota()">
+                    <input type="hidden" formControlName="id">
+                <div class="row">
+                    <p>Guarda los datos de tu(s) mascota(s) y luego seleccionalo para solicitar el servicio</p>
+                    <div class="row">
+                        <div class="col s4">
+                            <input formControlName="nombre" type="text" name="nombre" required placeholder="Nombres">
+                        </div>
+                        <div class="col s4">
+                            <input formControlName="color_ojos" type="text" name="color-ojos" required placeholder="Color ojos">
+                        </div>
+                        <div class="col s4">
+                            <input formControlName="color_piel_pelaje" type="text" name="color-piel" required placeholder="Color piel">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s4">
+                            <input formControlName="altura" type="text" name="altura" required placeholder="Altura">
+                        </div>
+                        <div class="col s4">
+                            <input formControlName="tipo_animal" type="text" name="tipo_animal" required placeholder="Tipo de animal">
+                        </div>
+                        <div class="col s4">
+                            <input formControlName="raza" type="text" name="raza" required placeholder="Raza">
+                        </div>
+                    </div>
+                </div>
+                <p class="left-align">
+                    <button [disabled]="!fgValidador.valid" class="waves-effect waves-light btn" type="submit">Guardar</button>
+                </p>
+                </form>
+            </section>
+        </div>
+
+    </div>
+
+</div>
