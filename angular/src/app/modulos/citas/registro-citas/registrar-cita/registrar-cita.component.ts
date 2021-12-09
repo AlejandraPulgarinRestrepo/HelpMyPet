@@ -14,9 +14,9 @@ export class RegistrarCitaComponent implements OnInit {
   fgValidador: FormGroup= this.fb.group({
     'temperatura': ['',[Validators.required,]],
     'peso': ['',[Validators.required]],
-    'frecuenciaCardiaca': ['',[Validators.required]],
-    'frecuenciaRespiratoria': ['',[Validators.required]],
-    'estadoAnimo': ['',[Validators.required]],
+    'frecuencia_cardiaca': ['',[Validators.required]],
+    'frecuencia_respiratoria': ['',[Validators.required]],
+    'estado_animo': ['',[Validators.required]],
     'fecha': ['',[Validators.required]],
     'recomendaciones': ['',[Validators.required]],
   }) 

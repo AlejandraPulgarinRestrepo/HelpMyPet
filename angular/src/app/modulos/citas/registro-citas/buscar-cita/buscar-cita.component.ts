@@ -13,12 +13,14 @@ export class BuscarCitaComponent implements OnInit {
   constructor(private servicioCitas: CitasService) { }
 
   ngOnInit(): void {
+    this.ObtenerListadoCitas();
   }
 
   ObtenerListadoCitas(){
     this.servicioCitas.buscarCita().subscribe((datos:ModeloCitas[])=>{
       this.listadoCitas=datos;
     });
+    console.log("listado nestor", this.listadoCitas)
   }
 
 }

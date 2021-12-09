@@ -13,11 +13,15 @@ export class CitasService {
    }
 
    buscarCita(): Observable<ModeloCitas[]>{
-    return this.http.get<ModeloCitas[]>(`${this.url}/registro-visitas`)
+    return this.http.get<ModeloCitas[]>(`http://localhost:3000/registro-visitas`)
+   }
+
+   buscarCitaPorId(id:string): Observable<ModeloCitas>{
+    return this.http.get<ModeloCitas>(`http://localhost:3000/registro-visitas/${id}`)
    }
 
    crearCita(cita: ModeloCitas): Observable<ModeloCitas>{
-    return this.http.post<ModeloCitas>(`${this.url}/registro-visitas`, cita, {
+    return this.http.post<ModeloCitas>(`http://localhost:3000/registro-visitas`, cita, {
       headers: new HttpHeaders({
 
       })
@@ -25,15 +29,15 @@ export class CitasService {
    }
 
    actualizarCita(cita: ModeloCitas): Observable<ModeloCitas>{
-    return this.http.put<ModeloCitas>(`${this.url}/registro-visitas`, cita, {
+    return this.http.put<ModeloCitas>(`http://localhost:3000/registro-visitas/${cita.id}`, cita, {
       headers: new HttpHeaders({
 
       })
     })
    }
 
-   eliminarCita(id: string): Observable<any>{
-    return this.http.delete(`${this.url}/registro-visitas/${id}`, {
+   eliminarCitaPorId(id: string): Observable<any>{
+    return this.http.delete(`http://localhost:3000/registro-visitas/${id}`, {
       headers: new HttpHeaders({
 
       })

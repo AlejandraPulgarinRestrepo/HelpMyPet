@@ -1,1 +1,32 @@
-
+<div class="container">
+    <form>
+        <table class="table responsive">
+            <thead>
+                <tr >
+                    <th>Temperatura</th>
+                    <th>Peso</th>
+                    <th>Frecuencia Cardiaca</th>
+                    <th>Frecuencia Respiratoria</th>
+                    <th>Estado de animo</th>
+                    <th>Fecha</th>
+                    <th>Recomendaciones</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let p of listadoCitas'>
+                    <td>{{p.temperatura}}</td>
+                    <td>{{p.peso}}</td>
+                    <td>{{p.frecuencia_cardiaca}}</td>
+                    <td>{{p.frecuencia_respiratoria}}</td>
+                    <td>{{p.estado_animo}}</td>
+                    <td>{{p.fecha}}</td>
+                    <td>{{p.recomendaciones}}</td>
+                    <td><a class="waves-effect waves-light btn" routerLink="/citas/actualizar-cita/{{p.id}}">Editar</a></td>
+                    <td><a class="waves-effect waves-light btn" routerLink="/citas/eliminar-cita/{{p.id}}">Eliminar</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
