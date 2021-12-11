@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModeloDuenos } from 'src/app/modelos/duenos.modelo';
+import { AdministracionService } from 'src/app/servicios/administracion.service';
 
 @Component({
   selector: 'app-buscar-dueno',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuscarDuenoComponent implements OnInit {
 
-  constructor() { }
+  listadoDuenos: ModeloDuenos[]=[];
+  constructor(private servicioDueno: AdministracionService) { }
 
   ngOnInit(): void {
+    this.ObtenerListadoDuenos();
+  }
+  ObtenerListadoDuenos(){
+    this.servicioDueno.buscarDueno().subscribe((datos:ModeloDuenos[])=>{
+      this.listadoDuenos=datos;
+    });
   }
 
 }

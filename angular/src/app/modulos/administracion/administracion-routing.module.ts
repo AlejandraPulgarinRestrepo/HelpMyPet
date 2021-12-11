@@ -23,11 +23,11 @@ const routes: Routes = [
     component: BuscarDuenoComponent
   },
   {
-    path:"actualizar-dueno",
+    path:"actualizar-dueno/:id",
     component: ActualizarDuenoComponent
   },
   {
-    path:"eliminar-dueno",
+    path:"eliminar-dueno/:id",
     component: EliminarrDuenoComponent
   },
   {
@@ -39,11 +39,11 @@ const routes: Routes = [
     component: BuscarVeterinarioComponent
   },
   {
-    path:"actualizar-veterinario",
+    path:"actualizar-veterinario/:id",
     component: ActualizarVeterinarioComponent
   },
   {
-    path:"eliminar-veterinario",
+    path:"eliminar-veterinario/:id",
     component: EliminarVeterinarioComponent
   },
   {

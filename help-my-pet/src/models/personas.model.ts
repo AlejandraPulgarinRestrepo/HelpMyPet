@@ -40,7 +40,7 @@ export class Personas extends Entity {
   correo: string;
 
   @property({
-    type: 'number',
+    type: 'string',
     required: false,
   })
   clave: string;

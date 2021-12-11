@@ -6,39 +6,45 @@
                 <div class="row">
                 <p class="center-align">Por favor llena todos los campos con datos verídicos. <br> Tu información esta segura con nosotros</p>
                     <article class="col s6 offset-s3">
-                        <form method="POST" action="formulario-contacto">
+                        <form  [formGroup]= "fgValidador" (ngSubmit)="GuardarDueno()">
                             <div class="input-field">
                                 <i class="material-icons prefix">perm_identity</i>
 
-                                <input type="text" name="nombre" required placeholder="Nombre">
+                                <input formControlName="nombres" type="text" name="nombre" required placeholder="Nombre">
                             </div>
         
                             <div class="input-field">
                                 <i class="material-icons prefix">person_pin</i>
                             
-                                <input type="text" name="apellido" required placeholder="Apellido">
+                                <input formControlName="apellidos" type="text" name="apellido" required placeholder="Apellido">
                             </div>
                             
                             <div class="input-field">
                                 <i class="material-icons prefix">email</i>
                                 
-                                <input type="email" name="email" required placeholder="Correo">
+                                <input formControlName="correo" type="email" name="email" required placeholder="Correo">
                             </div>
         
                             <div class="input-field">
                                 <i class="material-icons prefix">phone</i>
                                 
-                                <input type="number" name="telefono" required placeholder="Teléfono">
+                                <input formControlName="telefono" type="text" name="telefono" required placeholder="Teléfono">
+                            </div>
+                            <div class="input-field">
+                                <i class="material-icons prefix"></i>
+                                
+                                <input formControlName="cedula" type="text" name="Cedula" required placeholder="Cedula">
                             </div>
 
                             <div class="input-field">
                                 <i class="material-icons prefix">book</i>
                                 
-                                <input type="text" name="direccion" required placeholder="Dirección">
+                                <input formControlName="direccion" type="text" name="direccion" required placeholder="Dirección">
                             </div>
                             
                             <p class="center-align">
-                                <button class="waves-effect waves-light btn" type="submit">Aceptar</button>
+                                <button [disabled]="!fgValidador.valid" class="waves-effect waves-light btn" type="submit">Aceptar</button>
+                                <a class="waves-effect waves-light btn" routerLink="/administracion/buscar-dueno">Consultar</a>
                             </p>
         
                         </form>
