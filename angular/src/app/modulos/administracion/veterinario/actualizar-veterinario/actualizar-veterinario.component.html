@@ -1,1 +1,72 @@
-<p>actualizar-veterinario works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col s12 center-align">
+            <section class="container">
+                <div class="row">
+                <p class="center-align">Por favor llena todos los campos con datos verídicos. <br> Gracias por trabajar con nosotros. ¡Salvemos juntos!</p>
+                    <article class="col s6 offset-s3">
+                        <form [formGroup]= "fgValidador"  (ngSubmit)="EditarVeterinario()">
+                            <input type="hidden" formControlName="id">
+                            <div class="input-field">
+                                <i class="material-icons prefix">perm_identity</i>
+
+                                <input formControlName="nombres" type="text" name="nombre" required placeholder="Nombre">
+                            </div>
+        
+                            <div class="input-field">
+                                <i class="material-icons prefix">person_pin</i>
+                            
+                                <input formControlName="apellidos" type="text" name="apellido" required placeholder="Apellido">
+                            </div>
+                            
+                            <div class="input-field">
+                                <i class="material-icons prefix">email</i>
+                                
+                                <input formControlName="correo" type="email" name="email" required placeholder="Correo electrónico">
+                            </div>
+        
+                            <div class="input-field">
+                                <i class="material-icons prefix">phone</i>
+                                
+                                <input formControlName="telefono" type="text" name="telefono" required placeholder="Teléfono">
+                            </div>
+
+                            <div class="input-field">
+                                <i class="material-icons prefix">identification</i>
+                                
+                                <input formControlName="cedula" type="text" name="cedula" required placeholder="Cedula">
+                            </div>
+                            <div class="input-field">
+                                <i class="material-icons prefix">card</i>
+                                
+                                <input formControlName="tarjeta_profesional" type="text" name="tarjeta" required placeholder="Tarjeta profesional">
+                            </div>
+                            <div class="input-field">
+                                <p>
+                                <label>Especialidad:  
+                                  <input formControlName="especializacion" type="checkbox" class="filled-in"  />
+                                  <span>Perros</span>
+                                  <input formControlName="especializacion" type="checkbox" class="filled-in"  />
+                                  <span>Gatos</span>
+                                  <input formControlName="especializacion" type="checkbox" class="filled-in"  />
+                                  <span>Aves</span>
+                                </label>
+                                </p>
+                            </div>
+                            
+                            <p class="center-align">
+                                <button [disabled]="!fgValidador.valid" class="waves-effect waves-light btn" type="submit">Aceptar</button>
+                            </p>
+        
+                        </form>
+        
+                    </article>
+                </div>
+            </section>
+        
+        
+            <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+        </div>
+    </div>
+</div>

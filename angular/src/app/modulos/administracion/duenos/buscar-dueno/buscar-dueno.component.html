@@ -1,1 +1,42 @@
-<p>buscar-dueno works!</p>
+<div class="container">
+    <h3>PETNOSTICO</h3>
+    <div class="row">
+        <div class="col s12 center-align">
+            <section class="container">
+                <form>
+                <div class="row">
+                </div>
+                <div class="row">
+                    <div class="row">
+                    <table>
+                        <thead>
+                          <tr>
+                              <th>Nombre</th>
+                              <th>Apellidos</th>
+                              <th>Cédula</th>
+                              <th>Email</th>
+                              <th>Teléfono</th>
+                              <th>Dirección</th>
+                          </tr>
+                        </thead>
+                
+                        <tbody>
+                          <tr *ngFor = "let d of listadoDuenos">
+                            <td>{{d.nombres}}</td>
+                            <td>{{d.apellidos}}</td>
+                            <td>{{d.cedula}}</td>
+                            <td>{{d.correo}}</td>
+                            <td>{{d.telefono}}</td>
+                            <td>{{d.direccion}}</td>
+                            <td><a class="waves-effect waves-light btn" routerLink="/administracion/actualizar-dueno/{{d.id}}">Editar</a></td>
+                            <td><a class="waves-effect waves-light btn" type="submit" routerLink="/administracion/eliminar-dueno/{{d.id}}">Eliminar</a></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                </div>
+                </form>
+            </section>
+        </div>
+    </div>
+</div>

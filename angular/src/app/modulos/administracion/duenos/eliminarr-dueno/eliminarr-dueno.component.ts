@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AdministracionService } from 'src/app/servicios/administracion.service';
 
 @Component({
   selector: 'app-eliminarr-dueno',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EliminarrDuenoComponent implements OnInit {
 
-  constructor() { }
+  id:string="";
+  constructor(private servicioDuenos: AdministracionService, private router: Router, private rote: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.id = this.rote.snapshot.params["id"];
+    this.EliminarDueno();
+  }
+
+  EliminarDueno(){
+    this.servicioDuenos.eliminarDuenoPorId(this.id).subscribe((datos:any)=>{
+      alert("Dueño eliminado correctamente")
+      this.router.navigate(["/administracion/buscar-dueno"])
+    }, (error:any)=>{
+      alert("Error eliminando el dueno")
+    });
   }
 
 }

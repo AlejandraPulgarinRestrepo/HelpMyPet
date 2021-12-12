@@ -1,1 +1,44 @@
-<p>buscar-veterinario works!</p>
+<div class="container">
+    <h3>PETNOSTICO</h3>
+    <div class="row">
+        <div class="col s12 center-align">
+            <section class="container">
+                <form>
+                <div class="row">
+                </div>
+                <div class="row">
+                    <div class="row">
+                    <table>
+                        <thead>
+                          <tr>
+                              <th>Nombre</th>
+                              <th>Apellidos</th>
+                              <th>Cédula</th>
+                              <th>Email</th>
+                              <th>Teléfono</th>
+                              <th>Tarjeta profesional</th>
+                              <th>Especialidad</th>
+                          </tr>
+                        </thead>
+                
+                        <tbody>
+                          <tr *ngFor = "let v of listadoVeterinarios">
+                            <td>{{v.nombres}}</td>
+                            <td>{{v.apellidos}}</td>
+                            <td>{{v.cedula}}</td>
+                            <td>{{v.correo}}</td>
+                            <td>{{v.telefono}}</td>
+                            <td>{{v.tarjeta_profesional}}</td>
+                            <td>{{v.especializacion}}</td>
+                            <td><a class="waves-effect waves-light btn" routerLink="/administracion/actualizar-veterinario/{{v.id}}">Editar</a></td>
+                            <td><a class="waves-effect waves-light btn" type="submit" routerLink="/administracion/eliminar-veterinario/{{v.id}}">Eliminar</a></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                </div>
+                </form>
+            </section>
+        </div>
+    </div>
+</div>
