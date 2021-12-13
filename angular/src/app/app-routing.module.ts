@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { RutaInexistenteComponent } from './home/ruta-inexistente/ruta-inexistente.component';
 import { SliderComponent } from './home/slider/slider.component';
 import { ErrorComponent } from './plantilla/error/error.component';
 import { InicioComponent } from './plantilla/inicio/inicio.component';
@@ -29,7 +30,7 @@ const routes: Routes = [
 
 {
   path:"**",
-  component: ErrorComponent
+  component: RutaInexistenteComponent
 }
 
 ];

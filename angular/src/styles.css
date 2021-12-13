@@ -8,6 +8,10 @@ main {
     flex: 1 0 auto;
 }
 
+h4 {
+    padding: 0px 20px 20px 25px;
+}
+
 .bloque_ingreso {
     display: flex;
     justify-content: center;
@@ -17,8 +21,8 @@ main {
 }
 
 .bloque_ingreso img {
-    width: 65px;
-    height: auto;
+    width: auto;
+    height: 65px;
     margin: 12px;
 }
 
